@@ -1,8 +1,8 @@
 package service
 
 import (
-	"hte-dispatcher/internal/domain"
-	"hte-dispatcher/internal/repository"
+	"hte-device-update-consumer/internal/domain"
+	"hte-device-update-consumer/internal/repository"
 )
 
 type MessageService interface {

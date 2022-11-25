@@ -1,4 +1,4 @@
-module hte-dispatcher
+module hte-device-update-consumer
 
 go 1.16
 

@@ -1,7 +1,7 @@
-# go-rest-template
-REST API server template with ping implemented.
+## Description
+Read the data from the device update queue and process it.
 
-# Setup
+## Setup
 1. Run Redis on Docker
 2. Set the env `REDIS_HOST` to redis host and port
 3. Set the env `API_LOCATION_HOST` to Location API host and port

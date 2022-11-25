@@ -3,8 +3,8 @@ package repository
 import (
 	"errors"
 	"github.com/go-resty/resty/v2"
-	"hte-dispatcher/internal/defines"
-	"hte-dispatcher/internal/domain"
+	"hte-device-update-consumer/internal/defines"
+	"hte-device-update-consumer/internal/domain"
 	"log"
 	"net/http"
 	"os"

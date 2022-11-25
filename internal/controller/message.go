@@ -2,8 +2,8 @@ package controller
 
 import (
 	"encoding/json"
-	"hte-dispatcher/internal/domain"
-	"hte-dispatcher/internal/service"
+	"hte-device-update-consumer/internal/domain"
+	"hte-device-update-consumer/internal/service"
 	"log"
 )
 
