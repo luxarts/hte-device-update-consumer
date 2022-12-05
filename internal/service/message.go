@@ -2,11 +2,12 @@ package service
 
 import (
 	"hte-device-update-consumer/internal/domain"
+	"hte-device-update-consumer/internal/domain/gen"
 	"hte-device-update-consumer/internal/repository"
 )
 
 type MessageService interface {
-	RegisterLocation(msg *domain.MessageDTO) error
+	RegisterLocation(m *gen.Message) error
 }
 
 type messageService struct {
@@ -21,13 +22,15 @@ func NewMessageService(locationRepo repository.LocationRepository, statusRepo re
 	}
 }
 
-func (s *messageService) RegisterLocation(msg *domain.MessageDTO) error {
-	err := s.locationRepo.Create(msg)
+func (s *messageService) RegisterLocation(m *gen.Message) error {
+	mDTO := domain.MessagePBToDTO(m)
+
+	err := s.locationRepo.Create(mDTO)
 	if err != nil {
 		return err
 	}
 
-	err = s.statusRepo.Update(msg)
+	err = s.statusRepo.Update(mDTO)
 
 	return nil
 }
