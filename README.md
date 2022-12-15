@@ -6,6 +6,14 @@ Read the data from the device update queue and process it.
 2. Set the env `REDIS_HOST` to redis host and port
 3. Set the env `API_LOCATION_HOST` to Location API host and port
 4. Set the env `API_STATUS_HOST` to Status API host and port
+5. Run WireMock on Docker
+  ```
+  docker run \
+    --name wiremock-studio \
+    -p 9000:9000 \
+    -p 8000-8100:8000-8100 \
+    up9inc/wiremock-studio:2.32.0-18
+  ```
 
 ## Put data into queue
 1. Connect to redis-cli
@@ -15,8 +23,8 @@ Read the data from the device update queue and process it.
     "device_id": string,
     "ts": int64,
     "coords": {
-      "lat": int64,
-      "lon": int64
+      "lat": float64,
+      "lon": float64
     },
     "battery": int64
   }

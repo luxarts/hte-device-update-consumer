@@ -4,7 +4,7 @@ type MessageDTO struct {
 	DeviceID  string      `json:"device_id"`
 	Timestamp int64       `json:"ts"`
 	Coords    Coordinates `json:"coords"`
-	Battery   int64       `json:"battery"`
+	Battery   int64       `json:"bat"`
 }
 
 type Coordinates struct {
