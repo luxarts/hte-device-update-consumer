@@ -1,10 +1,11 @@
 package controller
 
 import (
-	"encoding/json"
-	"hte-device-update-consumer/internal/domain"
+	"hte-device-update-consumer/internal/domain/gen"
 	"hte-device-update-consumer/internal/service"
 	"log"
+
+	"google.golang.org/protobuf/proto"
 )
 
 type MessageController interface {
@@ -19,14 +20,14 @@ func NewMessageController(svc service.MessageService) MessageController {
 }
 
 func (c *messageController) Process(msg *string) {
-	var m domain.MessageDTO
-	bytes := []byte(*msg)
-	err := json.Unmarshal(bytes, &m)
+	var m gen.Message
 
+	err := proto.Unmarshal([]byte(*msg), &m)
 	if err != nil {
 		log.Printf("Error unmarshaling payload: %+v\n", err)
 		return
 	}
+	log.Println(m)
 
 	err = c.svc.RegisterLocation(&m)
 

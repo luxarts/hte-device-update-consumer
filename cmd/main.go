@@ -2,15 +2,16 @@ package main
 
 import (
 	"context"
-	"github.com/go-redis/redis/v9"
-	"github.com/go-resty/resty/v2"
-	_ "github.com/joho/godotenv/autoload"
 	"hte-device-update-consumer/internal/controller"
 	"hte-device-update-consumer/internal/defines"
 	"hte-device-update-consumer/internal/repository"
 	"hte-device-update-consumer/internal/service"
 	"log"
 	"os"
+
+	"github.com/go-redis/redis/v9"
+	"github.com/go-resty/resty/v2"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
@@ -46,8 +47,6 @@ func main() {
 			}
 			log.Printf("Error receiving msg: %+v\n", err)
 		}
-
-		log.Printf("Received message: %s\n", msg)
 
 		ctrl.Process(&msg)
 	}
