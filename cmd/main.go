@@ -4,6 +4,7 @@ import (
 	"context"
 	"hte-device-update-consumer/internal/controller"
 	"hte-device-update-consumer/internal/defines"
+	"hte-device-update-consumer/internal/metrics"
 	"hte-device-update-consumer/internal/repository"
 	"hte-device-update-consumer/internal/service"
 	"log"
@@ -15,6 +16,8 @@ import (
 )
 
 func main() {
+	metrics.StartServer()
+
 	// Redis Client
 	ctx := context.Background()
 
